@@ -2,7 +2,7 @@ import { useState } from "react";
 import TripCard from "../components/TripCard";
 
 function HomePage() {
-  const [trips, setTrip] = useState([
+  const [trips] = useState([
     {
       id: 1,
       title: "Hiking in the Alps",
@@ -24,15 +24,24 @@ function HomePage() {
   ]);
 
   return (
-    <div>
-      <h1>Travel Stories</h1>
-      <p>Explore experiences shared by travelers.</p>
+    <div className="home-page">
+      <section className="hero">
+        <div className="hero-overlay">
+          <h1>Experience travel through stories</h1>
+          <p>
+            Read real travel experiences and get inspired for your next trip.
+          </p>
+          <button className="hero-button">Start exploring</button>
+        </div>
+      </section>
 
-      <div>
-        {trips.map((trip) => (
-          < TripCard key={trip.id} trip={trip} />
-        ))}
-      </div>
+      <section className="stories-section">
+        <div className="stories-grid">
+          {trips.map((trip) => (
+            <TripCard key={trip.id} trip={trip} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

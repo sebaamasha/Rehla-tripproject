@@ -53,13 +53,15 @@ function FormPage() {
   }
 
   return (
-    <div style={styles.container}>
-      <h1>Add a New Travel Story</h1>
-      <p>Share your experience with other travelers.</p>
+  <div className="form-page">
+    <div className="form-container">
+      <h1 className="form-title">Add a New Travel Story</h1>
+      <p className="form-subtitle">Share your experience with other travelers.</p>
 
-      <form onSubmit={handleSubmit} style={styles.form}>
+      <form onSubmit={handleSubmit} className="story-form">
+        
         {/* Title */}
-        <div style={styles.field}>
+        <div className="form-field">
           <label htmlFor="title">Title</label>
           <input
             id="title"
@@ -68,24 +70,24 @@ function FormPage() {
             onChange={(event) => setTitle(event.target.value)}
             placeholder="Trip Title"
           />
-          {errors.title && <p style={styles.error}>{errors.title}</p>}
+          {errors.title && <p className="error-message">{errors.title}</p>}
         </div>
 
         {/* Location */}
-        <div style={styles.field}>
+        <div className="form-field">
           <label htmlFor="location">Location</label>
           <input
             id="location"
             type="text"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
-            placeholder="Location"
+            placeholder="location"
           />
-          {errors.location && <p style={styles.error}>{errors.location}</p>}
+          {errors.location && <p className="error-message">{errors.location}</p>}
         </div>
 
         {/* Description */}
-        <div style={styles.field}>
+        <div className="form-field">
           <label htmlFor="description">Description</label>
           <textarea
             id="description"
@@ -94,54 +96,21 @@ function FormPage() {
             onChange={(event) => setDescription(event.target.value)}
             placeholder="Tell us about your experience..."
           />
-          {errors.description && (
-            <p style={styles.error}>{errors.description}</p>
-          )}
+          {errors.description && <p className="error-message">{errors.description}</p>}
         </div>
 
-        <button type="submit" style={styles.button}>
+        <button type="submit" className="submit-button">
           Submit Story
         </button>
 
-        {successMessage && (
-          <p style={styles.success}>{successMessage}</p>
-        )}
+        {successMessage && <p className="success-message">{successMessage}</p>}
       </form>
     </div>
-  );
+  </div>
+);
+
 }
 
-const styles = {
-  container: {
-    maxWidth: "600px",
-    margin: "0 auto",
-    padding: "16px",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "16px",
-    marginTop: "16px",
-  },
-  field: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "4px",
-  },
-  error: {
-    color: "red",
-    fontSize: "0.9rem",
-  },
-  success: {
-    color: "green",
-    marginTop: "8px",
-  },
-  button: {
-    padding: "8px 16px",
-    borderRadius: "4px",
-    border: "none",
-    cursor: "pointer",
-  },
-};
+
 
 export default FormPage;

@@ -1,23 +1,12 @@
 
-
 function TripCard({ trip }) {
   return (
-    <div style={styles.card}>
-      <h2>{trip.title}</h2>
-      <h4>{trip.location}</h4>
-      <p>{trip.description}</p>
-    </div>
+    <article className="trip-card">
+      <h3 className="trip-title">{trip.title}</h3>
+      <p className="trip-location">{trip.location}</p>
+      <p className="trip-description">{trip.description}</p>
+    </article>
   );
 }
-
-const styles = {
-  card: {
-    border: "1px solid #ccc",
-    padding: "16px",
-    borderRadius: "8px",
-    marginBottom: "12px",
-    backgroundColor: "#f9f9f9",
-  },
-};
 
 export default TripCard;
